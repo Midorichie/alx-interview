@@ -1,6 +1,13 @@
 #!/usr/bin/python3
+"""UTF-8 Validation"""
 
 def validUTF8(data):
+    """
+    Determines if a given data set represents a valid UTF-8 encoding.
+
+    :param data: List of integers where each integer represents 1 byte of data
+    :return: True if data is a valid UTF-8 encoding, else False
+    """
     # Number of bytes in the current UTF-8 character
     n_bytes = 0
 
