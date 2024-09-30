@@ -1,18 +1,29 @@
-#!/usr/bin/node
+#!/usr/bin/python3
+"""
+Rotate 2D Matrix
 
-const request = require('request');
+Rotates a 2D matrix 90 degrees clockwise in-place.
 
-request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], function (err, res, body) {
-	if (err) throw err;
-	const actors = JSON.parse(body).characters;
-	exactOrder(actors, 0);
-});
 
-const exactOrder = (actors, x) => {
-	if (x === actors.length) return;
-	request(actors[x], function (err, res, body) {
-		if (err) throw err;
-		console.log(JSON.parse(body).name);
-		exactOrder(actors, x + 1);
-	});
-};
+"""
+
+
+def rotate_2d_matrix(matrix):
+    """
+    Rotates a 2D matrix 90 degrees clockwise in-place.
+
+    Args:
+        matrix (list[list]): The input 2D matrix.
+
+    Returns:
+        None
+    """
+    # Transpose the matrix (swap rows with columns)
+    n = len(matrix)
+    for i in range(n):
+        for j in range(i + 1, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+    # Reverse each row to complete the rotation
+    for row in matrix:
+        row.reverse()
